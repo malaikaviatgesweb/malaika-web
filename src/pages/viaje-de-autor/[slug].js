@@ -69,9 +69,9 @@ const PageViatgeDautor = ({ data, ...props}) => {
                     <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
                             <p>GRUPO: {campsViatge?.grup}</p>
-                            <span>PRECIO: {campsViatge?.preu}</span>
+                            <span dangerouslySetInnerHTML={{__html: `PRECIO: ${campsViatge?.preu || ''}`}}/>
                             <span>Tasas de aeropuerto: {campsViatge?.taxes}</span>
-                            <span>Suplemento hab. individual: {campsViatge?.suplement}</span>
+                            <span dangerouslySetInnerHTML={{__html: `Suplemento hab. individual: ${campsViatge?.suplement || ''}`}}/>
                         </div>
 
 
