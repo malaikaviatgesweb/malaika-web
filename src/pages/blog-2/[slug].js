@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {viatge_autor_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -14,9 +14,16 @@ import 'antd/dist/antd.css';
 import {blog_article_styles} from "../../styles/pages/blog_articleStyles";
 import {GET_BLOG_ENTRY_BY_SLUG} from "../../contexts/apollo/queries/blog";
 import HeaderInici from "../../components/HeaderInici";
+import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
 const PageBlogEntry = ({children,title,slug,content,featuredImage,date, ...props}) => {
+
+    const {setLanguage} = useContext(LaunguageContext);
+
+    useEffect(() => {
+        setLanguage({ language: 'ES', pageTranslation: 'blog' });
+    }, []);
 
     if(title === undefined){
         return null

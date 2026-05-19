@@ -23,20 +23,10 @@ const Page = ({data, ...props}) => {
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
 
-    const [page, setPage] = useState(null);
+    const {setLanguage} = useContext(LaunguageContext);
     useEffect(() => {
-        if (data) {
-            setPage(data.pageBy);
-        }
-    },[data]);
-
-    const {language, setLanguage} = useContext(LaunguageContext);
-    useEffect(() => {
-        setLanguage({
-            language: page?.language?.code,
-            pageTranslation: "blog"
-        });
-    }, [page]);
+        setLanguage({ language: 'ES', pageTranslation: 'blog' });
+    }, []);
 
     const goTo = (slug) => (e) =>{
         router.push(slug)
