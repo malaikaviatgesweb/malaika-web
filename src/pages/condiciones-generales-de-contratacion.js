@@ -40,7 +40,7 @@ const Page = ({title, content, ...props}) => {
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/condicions-generals/'}})
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/condiciones-generales-de-contratacion/'}})
         .then((data) => {
             console.log(data)
             return data.data.pageBy;
