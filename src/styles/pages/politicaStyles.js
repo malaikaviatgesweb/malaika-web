@@ -21,6 +21,38 @@ export const politica_styles = (theme) => {
                 margin-bottom: 1.5rem;
                 font-size: 1.4rem;
             }
+
+            h3{
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+
+            ul{
+                list-style: disc;
+                padding-left: 2rem;
+                margin: 0 0 1rem;
+            }
+
+            ol{
+                list-style: decimal;
+                padding-left: 2rem;
+                margin: 0 0 1rem;
+            }
+
+            ul ul, ol ul{
+                list-style: circle;
+                margin-bottom: 0;
+            }
+
+            ul ol, ol ol{
+                list-style: lower-alpha;
+                margin-bottom: 0;
+            }
+
+            li{
+                margin-bottom: 0.5rem;
+                line-height: 1.4;
+            }
         }
 
 
