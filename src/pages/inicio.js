@@ -108,8 +108,16 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     const  fraseInici = galeria.slider.map((image=> image.slide.text))
     const  titolsInici = galeria.slider.map((image => image.slide.title))
 
+    const [acceptComms, setAcceptComms] = useState(false);
+    const [acceptPolicy, setAcceptPolicy] = useState(false);
+
     const mdirector = (e) => {
         e.preventDefault();
+
+        if (!acceptComms || !acceptPolicy) {
+            return;
+        }
+
         console.log(e);
 
         const headers = {
@@ -371,14 +379,32 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                             </div>
 
                             <div>
-                                <form onSubmit={mdirector}
-                                    >
-                                    <input name={"email-news"} css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
-                                    <button htmlType="submit">Suscríbete</button>
+                                <form onSubmit={mdirector}>
+                                    <input name={"email-news"} css={{margin:'0'}} type={"text"} placeholder={"Tu email"}/>
+                                    <button htmlType="submit" disabled={!acceptComms || !acceptPolicy}>Suscríbete</button>
+
+                                    <div className={"legal-text"}>
+                                        <p>Al pulsar en el botón “enviar” se subscribe a nuestro boletín de noticias que le enviaremos puntualmente a través de email a la dirección indicada, resultando su acción una clara acción afirmativa. Así mismo le informamos que Assessors Malaika Viatges, S.L. conocida comercialmente como MALAIKA VIATGES, actúa como responsable del tratamiento de datos, y que la finalidad de estas comunicaciones será dar respuesta a su solicitud y mantenerle informado de nuestras novedades en los productos que ofrecemos. En cualquier momento puede darse de baja enviando su solicitud siguiendo las instrucciones indicadas en cada correo de nuestro newsletter.</p>
+                                    </div>
 
                                     <div className={"conditions"}>
-                                        <input type={"checkbox"}/>
-                                        <p>He leído y acepto la <a target={"_blank"} href={"avis-legal"}>política de privacidad</a></p>
+                                        <input
+                                            type={"checkbox"}
+                                            checked={acceptComms}
+                                            onChange={(e) => setAcceptComms(e.target.checked)}
+                                            required
+                                        />
+                                        <p>Acepto el envío de comunicaciones comerciales de otras empresas asociadas.</p>
+                                    </div>
+
+                                    <div className={"conditions"}>
+                                        <input
+                                            type={"checkbox"}
+                                            checked={acceptPolicy}
+                                            onChange={(e) => setAcceptPolicy(e.target.checked)}
+                                            required
+                                        />
+                                        <p>He leído y acepto la <a target={"_blank"} href={"/politica-privacidad"}>política de privacidad</a> y el <a target={"_blank"} href={"/aviso-legal"}>aviso legal</a>.</p>
                                     </div>
                                 </form>
 

@@ -74,6 +74,16 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         }
     },[novetats])
 
+    const [acceptComms, setAcceptComms] = useState(false);
+    const [acceptPolicy, setAcceptPolicy] = useState(false);
+
+    const onSubscribe = (e) => {
+        e.preventDefault();
+        if (!acceptComms || !acceptPolicy) {
+            return;
+        }
+    };
+
 
 /*    const settings = {
         dots: true,
@@ -315,13 +325,34 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                             </div>
 
                             <div>
-                                <input css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
-                                <button>Subscriu-te</button>
+                                <form onSubmit={onSubscribe}>
+                                    <input name={"email-news"} css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
+                                    <button type={"submit"} disabled={!acceptComms || !acceptPolicy}>Subscriu-te</button>
 
-                                <div className={"conditions"}>
-                                    <input type={"checkbox"}/>
-                                    <p>He llegit i accepto la <a target={"_blank"} href={"avis-legal"}>política de privacitat</a></p>
-                                </div>
+                                    <div className={"legal-text"}>
+                                        <p>En prémer en el botó “enviar” se subscriu al nostre butlletí de notícies que li enviarem puntualment a través d’email a l’adreça indicada, resultant la seva acció una clara acció afirmativa. Així mateix, l’informem que Assessors Malaika Viatges, S.L., coneguda comercialment com a MALAIKA VIATGES, actua com a responsable del tractament de dades, i que la finalitat d’aquestes comunicacions serà donar resposta a la seva sol·licitud i mantenir-lo informat de les nostres novetats en els productes que oferim. En qualsevol moment pot donar-se de baixa enviant la seva sol·licitud seguint les instruccions indicades en cada correu del nostre newsletter.</p>
+                                    </div>
+
+                                    <div className={"conditions"}>
+                                        <input
+                                            type={"checkbox"}
+                                            checked={acceptComms}
+                                            onChange={(e) => setAcceptComms(e.target.checked)}
+                                            required
+                                        />
+                                        <p>Accepto l’enviament de comunicacions comercials d’altres empreses associades.</p>
+                                    </div>
+
+                                    <div className={"conditions"}>
+                                        <input
+                                            type={"checkbox"}
+                                            checked={acceptPolicy}
+                                            onChange={(e) => setAcceptPolicy(e.target.checked)}
+                                            required
+                                        />
+                                        <p>He llegit i accepto la <a target={"_blank"} href={"/politica-privacitat"}>política de privacitat</a> i l’<a target={"_blank"} href={"/avis-legal"}>avís legal</a>.</p>
+                                    </div>
+                                </form>
                             </div>
                         </Col>
                     </Row>

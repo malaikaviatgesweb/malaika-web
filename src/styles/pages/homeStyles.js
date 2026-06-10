@@ -268,20 +268,46 @@ export const home_styles = (theme) => {
                 }
             }
 
-            .conditions{
-                display: flex;
-                align-items: center;
-                input, p{
-                    margin: 0;
-                    font-size: ${theme.font.sm};
+            .legal-text{
+                margin-top: 1rem;
+                p{
+                    font-size: 0.7rem;
+                    line-height: 1.4;
+                    text-align: justify;
                 }
-                a,input[type='checkbox']{
+            }
+
+            .conditions{
+                display: flex !important;
+                flex-direction: row;
+                align-items: flex-start;
+                margin-top: 0.75rem;
+                gap: 0.5rem;
+
+                input[type='checkbox']{
+                    width: 1rem;
+                    height: 1rem;
+                    min-width: 1rem;
+                    margin: 0.2rem 0 0 0;
+                    padding: 0;
+                    flex-shrink: 0;
                     cursor: pointer;
                 }
 
-                input{
-                    margin-right: 0.5rem;
+                p{
+                    margin: 0;
+                    font-size: ${theme.font.sm};
+                    flex: 1;
                 }
+
+                a{
+                    cursor: pointer;
+                }
+            }
+
+            button:disabled{
+                opacity: 0.5;
+                cursor: not-allowed;
             }
 
 
