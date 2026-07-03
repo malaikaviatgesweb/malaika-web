@@ -72,13 +72,13 @@ const Footer = ({img = true, children, ...props}) => {
                         <div className={" last"}>
                             {
                                 lang === "CA" &&
-                                <span className={"politicas"}><a target={"_blank"} href={"/avis-legal"}>Avís legal</a> / <a target={"_blank"} href={"/condicions-generals-de-contractacio"}>Condicions generals</a></span>
+                                <span className={"politicas"}><a target={"_blank"} href={"/avis-legal"}>Avís legal</a> / <a target={"_blank"} href={"/condicions-generals-de-contractacio"}>Condicions generals</a> / <a target={"_blank"} href={"/politica-privacitat"}>Política de privacitat</a></span>
 
                             }
 
                             {
                                 lang === "ES" &&
-                                <span className={"politicas"}><a target={"_blank"} href={"/aviso-legal"}>Aviso legal</a> / <a target={"_blank"} href={"/condiciones-generales-de-contratacion"}>Condiciones generales</a></span>
+                                <span className={"politicas"}><a target={"_blank"} href={"/aviso-legal"}>Aviso legal</a> / <a target={"_blank"} href={"/condiciones-generales-de-contratacion"}>Condiciones generales</a> / <a target={"_blank"} href={"/politica-privacitat"}>Política de privacidad</a></span>
 
                             }
 {/*
