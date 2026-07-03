@@ -218,7 +218,7 @@ const PageContacta = ({title,featuredImage,children, datoscontacto, ...props}) =
                                 <Col span={24}>
                                     <div  className={"conditions"}>
                                         <input name={'condiciones'} type={"checkbox"} required/>
-                                        <span className={"fs-16"}>He llegit i accepto la <a target={"_blank"} href={"avis-legal"}>política de privacitat</a></span>
+                                        <span className={"fs-16"}>He llegit i accepto la la <a target={"_blank"} href={"/politica-privacitat"}>política de privacitat</a> i l’<a target={"_blank"} href={"/avis-legal"}>avís legal</a>.</span>
                                     </div>
 
                                     <button>Enviar</button>
